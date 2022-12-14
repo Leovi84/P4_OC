@@ -48,11 +48,11 @@ const numbers = /^[0-9]+$/;
 form.forEach(form => form.addEventListener("submit", validate));
 
 function validate() {
-  if (first.value === '' && first.lenght > 1) {
+  if (first.value === '' && first.length > 1) {
     alert ("Remplir le champ avec votre Prénom");
     return false;
   } 
-  else if (last.value === '' && last.lenght > 1) { 
+  else if (last.value === '' && last.length > 1) { 
     alert ("Remplir le champ avec votre Nom");
     return false;
   } 
