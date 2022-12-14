@@ -28,7 +28,7 @@ close.addEventListener("click", closeModal => {
 });
 
 // Valid on submit
-const form = document.getElementsByTagName('form');
+const form = document.querySelector('form');
 const input = document.getElementsByTagName('input');
 const first = document.getElementById('first');
 const last = document.getElementById('last');
@@ -44,8 +44,14 @@ const location6 = document.getElementById('location6');
 
 const dateFormat = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 const numbers = /^[0-9]+$/;
+const emailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-input.forEach(input => input.addEventListener("submit", validate));
+// submit handler
+
+form.addEventListener('submit', (e) => {
+  // on form submission, prevent default
+  e.preventDefault();
+})
 
 function validate() {
   if (first.value === '' && first.length > 1) {
@@ -56,7 +62,7 @@ function validate() {
     alert ("Remplir le champ avec votre Nom");
     return false;
   } 
-  else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) { 
+  else if (emailFormat.test(email.value)) { 
     alert ("Remplir le champ avec votre email");
     return false;
   }
