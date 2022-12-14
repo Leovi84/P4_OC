@@ -45,7 +45,7 @@ const location6 = document.getElementById('location6');
 const dateFormat = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 const numbers = /^[0-9]+$/;
 
-form.forEach(form => form.addEventListener("submit", validate));
+input.forEach(input => input.addEventListener("submit", validate));
 
 function validate() {
   if (first.value === '' && first.length > 1) {
