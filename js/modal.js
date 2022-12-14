@@ -56,11 +56,11 @@ function validate() {
     alert ("Remplir le champ avec votre Nom");
     return false;
   } 
-  else if (/^[0-9]+$/.test(email.value)) { 
+  else if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value)) { 
     alert ("Remplir le champ avec votre email");
     return false;
   }
-  else if (/^\d{2}[./-]\d{2}[./-]\d{4}$/.test(birthdate.value)) { 
+  else if (dateFormat.test(birthdate.value)) { 
     alert ("Remplir le champ avec votre date de naissance");
     return false;
   }
