@@ -57,38 +57,64 @@ form.addEventListener('submit', (e) => {
   const errorLocation = [];
   const errorCheck = [];
 
-function validate() {
+function resetErrors() {
+  first.parentElement.removeAttribute("data-error")
+  first.parentElement.removeAttribute("data-error-visible")
+  last.parentElement.removeAttribute("data-error")
+  last.parentElement.removeAttribute("data-error-visible")
+  email.parentElement.removeAttribute("data-error")
+  email.parentElement.removeAttribute("data-error-visible")
+  birthdate.parentElement.removeAttribute("data-error")
+  birthdate.parentElement.removeAttribute("data-error-visible")
+  quantity.parentElement.removeAttribute("data-error")
+  quantity.parentElement.removeAttribute("data-error-visible")
+  location1.parentElement.removeAttribute("data-error")
+  location1.parentElement.removeAttribute("data-error-visible")
+  location2.parentElement.removeAttribute("data-error")
+  location2.parentElement.removeAttribute("data-error-visible")
+  location3.parentElement.removeAttribute("data-error")
+  location3.parentElement.removeAttribute("data-error-visible")
+  location4.parentElement.removeAttribute("data-error")
+  location4.parentElement.removeAttribute("data-error-visible")
+  location5.parentElement.removeAttribute("data-error")
+  location5.parentElement.removeAttribute("data-error-visible")
+  location6.parentElement.removeAttribute("data-error")
+  location6.parentElement.removeAttribute("data-error-visible")
+  checkbox1.parentElement.removeAttribute("data-error")
+  checkbox1.parentElement.removeAttribute("data-error-visible")
+}
 
-  if (first.value === '' || first.length <= 2) {
-    errorFirst.push ("Veuillez entrer 2 caractères ou plus pour le champ du prénom");
-    return false;
-  } 
-  else if (last.value === '' || last.length <= 2) {
-    errorLast.push ("Veuillez entrer 2 caractères ou plus pour le champ du nom");
-    return false;
-  } 
-  else if (!emailFormat.test(email)) {
-    errorEmail.push ("Remplir le champ avec votre email");
-    return false;
-  }
-  else if (birthdate.value === '') {
-    errorBirthdate.push ("Vous devez entrer votre date de naissance");
-    return false;
-  }
-  else if (!quantity.value.match(numbers)) {
-    errorQuantity.push ("Indiquer le nombre de tournois");
-    return false;
-  }
-  else if (!location1.checked && !location2.checked && !location3.checked && !location4.checked && !location5.checked && !location6.checked) {
-    errorLocation.push ("Vous devez choisir une option");
-    return false;
-  }
-  else if (!checkbox1.checked) {
-    errorCheck.push ("Vous devez cocher la case");
-    return false; 
-  }
-  else {
-    alert ("Merci ! Votre réservation a été reçue.");
-    return true;
+function setError(element, message) {
+  element.parentElement.setAttribute("data-error", message);
+  element.parentElement.setAttribute("data-error-visible", true);
+}
+
+
+function validate() {
+  resetErrors();
+  if (first.value === '' || first.value.length <= 2) {
+      setError(first, "Veuillez entrer 2 caractères ou plus pour le champ du prénom");
+      return false;
+  } else if (last.value === '' || last.value.length <= 2) {
+      setError(last, "Veuillez entrer 2 caractères ou plus pour le champ du nom");
+      return false;
+  } else if (!emailFormat.test(email.value)) {
+      setError(email, "Remplir le champ avec votre email");
+      return false;
+  } else if (birthdate.value === '') {
+      setError(birthdate, "Vous devez entrer votre date de naissance");
+      return false;
+  } else if (!quantity.value.match(numbers.value)) {
+      setError(quantity, "Indiquer le nombre de tournois");
+      return false;
+  } else if (!location1.checked && !location2.checked && !location3.checked && !location4.checked && !location5.checked && !location6.checked) {
+      setError(location1, "Vous devez choisir une option");
+      return false;
+  } else if (!checkbox1.checked) {
+      setError(checkbox1, "Vous devez cocher la case");
+      return false;
+  } else {
+      alert("Merci ! Votre réservation a été reçue.");
+      return true;
   }
 }
