@@ -193,15 +193,22 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  z-index: 12;
 }
 
-.modal-body.end {
-display: flex;
-flex-direction: column;
-align-items: center;
+.modal-thanks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  overflow: hidden;
 }
 
-span.Thanks {
+.end {
+  display: none;
+}
+
+label.thanks {
 padding-bottom: 530px;
 padding-top: 280px;
 }

@@ -34,6 +34,27 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 })
 
+const modalBody = document.querySelector(".modal-body");
+const modalThanks = document.querySelector(".modal-thanks");
+const openModal = document.querySelector(".button-open");
+const closeModal = document.querySelector(".button-close");
+
+const closeModal = function () {
+ modalBody.classList.add("end");
+ modalThanks.classList.add("end");
+};
+
+closeModal.addEventListener("submit", closeModal);
+modalThanks.addEventListener("submit", closeModal);
+
+const openModal = function () {
+  modalBody.classList.remove("end");
+  modalThanks.classList.remove("end");
+}
+
+openModal.addEventListener("submit", openModal);
+
+
   const first = document.getElementById('first');
   const last = document.getElementById('last');
   const email = document.getElementById('email');
