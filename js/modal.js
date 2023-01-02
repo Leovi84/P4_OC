@@ -12,19 +12,43 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const close = document.querySelector(".close");
+const mainForm = document.getElementsByName("reserve")[0];
+const modalBody = document.querySelector(".modal-body");
+const modalThanks = document.querySelector(".modal-thanks");
+const closeModalElement = document.querySelector(".button-close");
 
+const closeModal = function() {
+  hideElement(modalbg);
+  hideElement(modalThanks);
+};
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal() {
-  modalbg.style.display = "block";
+  showElement(modalbg);
+  showElement(modalBody);
+  showElement(mainForm);
+}
+
+function openThanksModal() {
+  hideElement(mainForm);
+  hideElement(modalBody);
+  showElement(modalThanks);
+}
+
+function showElement(element) {
+  element.style.display = "block";
+}
+
+function hideElement(element) {
+  element.style.display = "none";
 }
 
 // close modal form
-close.addEventListener("click", closeModal => {
-  modalbg.style.display = "none";
+close.addEventListener("click", () => {
+  closeModal();
 });
 
 const form = document.querySelector('form');
@@ -34,26 +58,10 @@ form.addEventListener('submit', (e) => {
   e.preventDefault();
 })
 
-const modalBody = document.querySelector(".modal-body");
-const modalThanks = document.querySelector(".modal-thanks");
-const openModal = document.querySelector(".button-open");
-const closeModal = document.querySelector(".button-close");
-
-const closeModal = function () {
- modalBody.classList.add("end");
- modalThanks.classList.add("end");
-};
-
-closeModal.addEventListener("submit", closeModal);
-modalThanks.addEventListener("submit", closeModal);
-
-const openModal = function () {
-  modalBody.classList.remove("end");
-  modalThanks.classList.remove("end");
-}
-
-openModal.addEventListener("submit", openModal);
-
+closeModalElement.addEventListener("click", () => {
+  closeModal();
+});
+modalThanks.addEventListener("click", closeModal);
 
   const first = document.getElementById('first');
   const last = document.getElementById('last');
@@ -136,6 +144,7 @@ function validate() {
       return false;
   } else {
       alert("Merci ! Votre réservation a été reçue.");
+      openThanksModal();
       return true;
   }
 }

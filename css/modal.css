@@ -69,7 +69,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -77,7 +79,9 @@ img {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -100,7 +104,9 @@ img {
 
 
  @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
+  .topnav a {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
@@ -198,19 +204,18 @@ main {
 
 .modal-thanks {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.end {
-  display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 0;
+    overflow: hidden;
+    padding: 30px;
 }
 
 label.thanks {
-padding-bottom: 530px;
-padding-top: 280px;
+  padding-bottom: 520px;
+  padding-top: 200px;
+  display: flex;
+  justify-content: center;
 }
 
 label {
