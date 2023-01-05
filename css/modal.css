@@ -104,15 +104,21 @@ img {
 
 
  @media screen and (max-width: 540px) {
+  .header-logo img {
+    width: 50%;
+  }
   .topnav a {
     display: none;
   }
   .topnav a.icon {
+    display: flex;
+    align-items: center;
+    color: #FF001B;
     float: right;
     display: block;
     margin-top: -15px;
   }
-} 
+ }
 
 main {
   font-size: 130%;
@@ -511,13 +517,19 @@ footer {
 }
 @media screen and (max-width: 800px) {
   .hero-section {
+    min-height: 80vh;
     display: block;
     box-shadow: unset;
   }
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    padding: 0;
   }
   .hero-content::after {
     content: unset;
@@ -526,12 +538,14 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 2rem;
     white-space: normal;
+    width: 280px;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    width: 280px;
   }
   .hero-img img {
     border-radius: 10px;
@@ -543,8 +557,12 @@ footer {
     padding: 12px 35px;
   }
   .copyrights {
-    margin-top: 50px;
+    margin-top: 0;
+    font-size: 0.75rem;
     text-align: center;
+  }
+  .content {
+    margin: 19% auto;
   }
 }
 

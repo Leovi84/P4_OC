@@ -78,14 +78,6 @@ modalThanks.addEventListener("click", closeModal);
   const numbers = /^[0-9]+$/;
   const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-  const errorFirst = [];
-  const errorLast = [];
-  const errorEmail = [];
-  const errorBirthdate = [];
-  const errorQuantity = [];
-  const errorLocation = [];
-  const errorCheck = [];
-
 function resetErrors() {
   first.parentElement.removeAttribute("data-error")
   first.parentElement.removeAttribute("data-error-visible")
@@ -133,7 +125,7 @@ function validate() {
   } else if (birthdate.value === '') {
       setError(birthdate, "Vous devez entrer votre date de naissance");
       return false;
-  } else if (!quantity.value.match(numbers.value)) {
+  } else if (!quantity.value.match(numbers)) {
       setError(quantity, "Indiquer le nombre de tournois");
       return false;
   } else if (!location1.checked && !location2.checked && !location3.checked && !location4.checked && !location5.checked && !location6.checked) {
@@ -143,7 +135,6 @@ function validate() {
       setError(checkbox1, "Vous devez cocher la case");
       return false;
   } else {
-      alert("Merci ! Votre réservation a été reçue.");
       openThanksModal();
       return true;
   }
