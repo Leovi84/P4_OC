@@ -17,10 +17,22 @@ const modalBody = document.querySelector(".modal-body");
 const modalThanks = document.querySelector(".modal-thanks");
 const closeModalElement = document.querySelector(".button-close");
 
+// close modal form
+close.addEventListener("click", () => {
+  closeModal();
+});
+
+// Hide modal and display on click
 const closeModal = function() {
   hideElement(modalbg);
   hideElement(modalThanks);
 };
+
+closeModalElement.addEventListener("click", () => {
+  closeModal();
+});
+
+modalThanks.addEventListener("click", closeModal);
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -46,22 +58,12 @@ function hideElement(element) {
   element.style.display = "none";
 }
 
-// close modal form
-close.addEventListener("click", () => {
-  closeModal();
-});
-
 const form = document.querySelector('form');
 const input = document.getElementsByTagName('input');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
 })
-
-closeModalElement.addEventListener("click", () => {
-  closeModal();
-});
-modalThanks.addEventListener("click", closeModal);
 
   const first = document.getElementById('first');
   const last = document.getElementById('last');
