@@ -119,31 +119,34 @@ img {
     margin-top: -15px;
   }
   .hero-headline {
-    font-size: 2rem;
+    font-size: 2rem!important;
     width: 280px;
   }
   .hero-text {
     font-size: 1rem !important;
-    width: 280px;
+    width: 280px!important;
   }
   .copyrights {
-    margin-top: 0;
+    margin-top: 0 !important;
     font-size: 0.75rem !important;
   }
   .content {
-    margin: 19% auto;
+    margin: 19% auto !important;
   }
   .hero-content {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 280px;
-    padding: 0;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 280px!important;
+    padding: 0 !important;
   }
   .hero-section {
-    min-height: 80vh;
+    min-height: 80vh !important;
   }
+  .bground {
+    background-color: transparent !important;
  }
+}
 
 main {
   font-size: 130%;
@@ -556,9 +559,10 @@ footer {
   .hero-content .btn-signup {
     display: none;
   }
-  .hero-headline {
+ .hero-headline {
+    display: flex;
+    width: 605px;
     font-size: 4.5rem;
-    white-space: normal;
   }
   .hero-text {
     width: unset;
